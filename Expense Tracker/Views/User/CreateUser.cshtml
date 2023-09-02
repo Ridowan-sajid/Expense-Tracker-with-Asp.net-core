@@ -1,0 +1,41 @@
+﻿@model User
+
+<h2>Register</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <form method="post">
+                <div asp-validation-summary="All"></div>
+
+
+                <label asp-for="Name" class="py-2"></label>
+                <input asp-for="Name" placeholder="User Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <br />
+                <label asp-for="Password" class="py-2"></label>
+                <input asp-for="Password" placeholder="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+
+                <br />
+                <label asp-for="Email" class="py-2"></label>
+                <input asp-for="Email" placeholder="Email" type="email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <br/>
+                <label asp-for="JoinDate" class="py-2"></label>
+                <input asp-for="JoinDate" placeholder="JoinDate" type="date" class="form-control" />
+                <span asp-validation-for="JoinDate" class="text-danger"></span>
+                <br />
+                <label asp-for="Age" class="py-2"></label>
+                <input asp-for="Age" placeholder="Age" type="number" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+                <br />
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-success">
+                    <a class="text-decoration-none text-white" asp-controller="User" asp-action="Login">Login</a>
+                </button>
+            </form>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,39 @@
+﻿@model Item
+<partial name="_Notification" />
+
+<h2>Enter Item</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <form method="post">
+                <div asp-validation-summary="All"></div>
+                <label asp-for="Name" class="py-2"></label>
+                <input asp-for="Name" placeholder="Item Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <br />
+
+                <label asp-for="Number" class="py-2"></label>
+                <input asp-for="Number" placeholder="Item number" type="number" class="form-control" />
+                <span asp-validation-for="Number" class="text-danger"></span>
+
+                <br />
+                <label asp-for="Expense" class="py-2"></label>
+                <input asp-for="Expense" placeholder="Expense" type="number" class="form-control" />
+                <span asp-validation-for="Expense" class="text-danger"></span>
+                <br />
+                <label asp-for="date" class="py-2"></label>
+                <input asp-for="date" placeholder="Date" type="date" class="form-control" />
+                <span asp-validation-for="date" class="text-danger"></span>
+                <br />
+
+                <input asp-for="UserId" type="number" hidden value="1" class="form-control" />
+
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+    </div>
+

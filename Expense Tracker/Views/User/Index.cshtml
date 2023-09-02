@@ -1,0 +1,67 @@
+﻿@model List<User>
+
+<partial name="_Notification" />
+
+@if (Model != null)
+{
+<div class="container">
+    <div class="row">
+        <div class="col-7 p-2">
+            <h2>List of Category</h2>
+        </div>
+        <div class="col-5 p-2 ">
+            <a class="nav-link text-white bg-dark fw-bold text-center" asp-controller="User" asp-action="CreateUser">Create User</a>
+        </div>
+    </div>
+
+</div>
+
+<table class="table table-bordered table-striped">
+    <thead>
+        <tr>
+            <th>
+                User Name
+            </th>
+            <th>
+                Join Date
+            </th>
+            <th>
+                Age
+            </th>
+            <th>
+                Items
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+            @foreach (var i in Model)
+            {
+                <tr>
+                    <td>@i.Name</td>
+
+                    <td>@i.JoinDate</td>
+                    <td>@i.Age</td>
+                   
+
+
+
+                    <td>
+                        <a asp-controller="User" asp-action="UserUpdate" asp-route-id="@i.Id" class="btn btn-dark">Update</a>
+                    </td>
+                    <td>
+                        <a asp-controller="User" asp-action="DeleteUser" asp-route-id="@i.Id" class="btn btn-danger">Delete</a>
+                    </td>
+                </tr>
+
+            }
+
+       
+
+    </tbody>
+    </table>
+}
+else
+{
+    <h2>You are not eligible</h2>
+}

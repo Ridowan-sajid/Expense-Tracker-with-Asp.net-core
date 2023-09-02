@@ -1,0 +1,30 @@
+﻿@model User
+<partial name="_Notification" />
+
+<h2>Update User Info</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <form method="post">
+                <div asp-validation-summary="All"></div>
+
+                <input asp-for="Id" hidden />
+                <label asp-for="Name" class="py-2"></label>
+                <input asp-for="Name" placeholder="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+                <br />
+                <input asp-for="Email" hidden class="form-control" />
+                <input asp-for="Password" hidden class="form-control" />
+
+                <label asp-for="Age" class="py-2"></label>
+                <input asp-for="Age" placeholder="Age" class="form-control" />
+                <span asp-validation-for="Age" class="text-danger"></span>
+
+                <br />
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+
+        </div>
+    </div>
+</div>

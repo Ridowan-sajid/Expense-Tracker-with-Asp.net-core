@@ -1,0 +1,36 @@
+﻿@model User
+
+<h2>Login</h2>
+
+<div class="container">
+    <div class="row">
+        <div class="col-lg-8">
+            <form method="post">
+                <div asp-validation-summary="All"></div>
+                <label asp-for="Email" class="py-2"></label>
+                <input asp-for="Email" placeholder="Email" type="email" class="form-control" />
+                <span asp-validation-for="Email" class="text-danger"></span>
+                <br />
+                <label asp-for="Password" class="py-2"></label>
+                <input asp-for="Password" placeholder="Password" type="password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+                <br />
+
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-success">
+                    <a class="text-decoration-none text-white" asp-controller="User" asp-action="CreateUser">Register</a>
+                </button>
+                <div class="col-4 py-2">
+                </div>
+            </form>
+        </div>
+    </div>    
+</div>
+
+
+@section Scripts{
+    @{
+        <partial name="_ValidationScriptsPartial" />
+
+    }
+}
