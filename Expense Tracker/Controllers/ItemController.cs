@@ -126,5 +126,30 @@ namespace Expense_Tracker.Controllers
             TempData["Error"] = "You didn't Log In";
             return View();
         }
+        public IActionResult SearchItem()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult SearchItem(DateTime date)
+        {
+            double itemPrice = 0;
+            TempData["email"] = HttpContext.Session.GetString(SessionName);
+            if (TempData["email"] != null)
+            {
+                User user = _db.Users.FirstOrDefault(c => c.Email== TempData["email"]);
+                List<Item> items = _db.Items.Where(c => c.UserId == user.Id && c.date.Date == date.Date).ToList();
+                
+                foreach (var i in items)
+                {
+                    itemPrice += i.Expense;
+                }
+                TempData["totalPrices"] = itemPrice;
+                return View(items);
+            }
+            TempData["Error"] = "You didn't Log In";
+            return View();
+        }
+
     }
 }
